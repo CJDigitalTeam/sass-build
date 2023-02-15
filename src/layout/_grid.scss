@@ -1,0 +1,25 @@
+@use 'sass:list';
+@use '../abstracts' as *;
+@use '../vendors' as *;
+
+// Flex Grid System 
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[class^=col-] {
+    flex-basis: 100%;
+}
+@include media('>=tablet') {
+@for $i from 1 through 12 {
+        .col-#{$i} {
+            flex: 0 0 calc(100% / 12 * $i);
+        }
+        .col-offset-#{$i} {
+            margin-left: calc(100% / 12 * $i);
+        }
+    }   
+}
+

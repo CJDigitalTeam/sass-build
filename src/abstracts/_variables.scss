@@ -1,0 +1,47 @@
+// Color
+$clr-primary: red;
+$clr-secondary: blue;
+$clr-accent: green;
+$clr-neutral-light: #fff;
+$clr-neutral-dark: #000;
+
+// Gradients
+$simple-gradient: $clr-primary, $clr-secondary;
+$complex-gradient: $clr-primary, $clr-secondary, $clr-accent;
+
+// Color Schemes 
+$clr-scheme-default: $clr-primary, $clr-secondary;
+$clr-scheme-secondary: $clr-secondary, $clr-primary;
+$clr-scheme-neutral: $clr-neutral-dark, $clr-neutral-light;
+$clr-scheme-accent-gradient: $clr-accent, $simple-gradient;
+$clr-scheme-simple-gradient: $clr-neutral-light, $simple-gradient;
+
+// Typography
+$font-primary: 'Helvetica', Arial, sans-serif;
+$font-secondary: 'Helvetica', Arial, sans-serif;
+
+// Font Sizes
+$fs-1: 10px;
+$fs-2: 12px;
+$fs-3: 14px;
+$fs-4: 16px;
+$fs-5: 18px;
+$fs-6: 20px;
+$fs-7: 22px;
+$fs-8: 24px;
+$fs-9: 26px;
+$fs-10: 28px;
+$fs-11: 30px;
+$fs-12: 32px;
+
+// Spacing 
+$spc-1: 10px;
+$spc-2: 2em;
+$spc-3: 3em;
+$spc-4: 4em;
+$spc-5: 5em;
+$spc-6: 6em;
+$spc-7: 7em;
+$spc-8: 8em;
+$spc-9: 9em;
+$spc-10: 10em;

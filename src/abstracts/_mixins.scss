@@ -1,0 +1,110 @@
+@use 'sass:map';
+@use 'sass:list';
+@use '../abstracts/variables' as *;
+
+// Color Mixins 
+@mixin clr-scheme($text, $bg) {
+    @if list.length($bg) == 1 {
+        background-color: $bg;
+    } @else {
+        background: linear-gradient(to right, $bg);
+    }
+        color: $text;
+}
+
+// Mixin for Font Sizes 
+@function calculateRem($size) {
+   $remSize: $size / 16px;
+   @return $remSize * 1rem;
+ }
+ 
+ @mixin font-size($size) {
+   font-size: $size;
+   font-size: calculateRem($size);
+ }
+
+// CSS3 Prefix Mixins
+@mixin css3-prefix($prop, $value) {
+    -webkit-#{$prop}: #{$value};
+    -moz-#{$prop}: #{$value};
+    -ms-#{$prop}: #{$value};
+    -o-#{$prop}: #{$value};
+    #{$prop}: #{$value};
+ }
+
+// Vertical Center Mixin
+ @mixin vertical-center {
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+ }
+
+//  Font Face Mixin
+@mixin font-face($name, $file) {
+    @font-face {
+    font-family: "#{$name}";
+    src: url("../fonts/#{$file}.eot");
+    src: url("../fonts/#{$file}.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/#{$file}.woff") format("woff"),
+    url("../fonts/#{$file}.ttf") format("truetype"),
+    url("../fonts/#{$file}.svg?#webfont") format("svg");
+  }
+ }
+
+//  Keyframes Mixin for Animation
+ @mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+      @content;
+    }
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+    @keyframes #{$name} {
+      @content;
+    }
+ }
+
+ // Mixin for Absolute Positioning
+
+ @mixin abs-position ($top, $right, $bottom, $left) {
+    position: absolute; 
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+ }
+
+//  Mixing for Creating Arrrows 
+@mixin arrow($direction: down, $size: 5px, $color: #555) {
+    width: 0;
+    height: 0;
+    @if ($direction == left) {
+       border-top: $size solid transparent;
+       border-bottom: $size solid transparent; 
+       border-right: $size solid $color;
+    }
+    @else if ($direction == right) {
+       border-top: $size solid transparent;
+       border-bottom: $size solid transparent; 
+       border-left: $size solid $color;
+    }
+    @else if ($direction == down) {
+       border-left: $size solid transparent;
+       border-right: $size solid transparent;
+       border-top: $size solid $color;
+    }
+    @else {
+       border-left: $size solid transparent;
+       border-right: $size solid transparent;
+       border-bottom: $size solid $color;
+    }
+ }
+
+//  Mixin for Text Shortening with Ellipsis
+ @mixin text-shorten {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+ }
