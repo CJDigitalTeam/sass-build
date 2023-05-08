@@ -2,7 +2,8 @@
 @use '../abstracts' as *;
 @use '../vendors' as *;
 
-// Flex Grid System 
+
+/* GRID LAYOUT */
 
 .row {
     display: flex;
@@ -22,4 +23,3 @@
         }
     }   
 }
-

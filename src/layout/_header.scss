@@ -1,0 +1,25 @@
+@use '../abstracts' as *;
+
+/* Header */
+
+.logo {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.location {
+    width: 100%;
+    background-color: red;
+}
+
+header {
+   background-color: var(--secondary-color); 
+   text-align: center;
+   position: fixed;
+   width: 100%;
+   z-index: 999;
+   padding-top: 1rem;
+   padding-bottom: 1rem; 
+}
+
+

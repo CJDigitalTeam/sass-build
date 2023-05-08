@@ -1,0 +1,13 @@
+
+@use 'sass:list';
+@use '../abstracts' as *;
+@use '../vendors' as *;
+
+/* Jumbotron section */ 
+
+.jumbotron {
+    position: relative;
+    background-color: red;
+    height: 500px;
+    width: 100%;
+}

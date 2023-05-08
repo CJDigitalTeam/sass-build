@@ -7,7 +7,20 @@
   \********************/
 /***/ (() => {
 
+// HAMBURGER MENU TOGGLE START 
+var element = document.getElementById("hamburger");
+
+element.onclick = function () {
+  if (element.classList.contains("x")) {
+    element.classList.remove("x");
+  } else {
+    element.classList.add("x");
+  }
+}; // HAMBURGER MENU TOGGLE END 
+// MODAL START 
 // Get the modal
+
+
 var modal = document.getElementById("modal-main"); // Get the button that opens the modal
 
 var btn = document.getElementById("modal-btn"); // Get the <span> element that closes the modal
@@ -21,14 +34,16 @@ btn.onclick = function () {
 
 span.onclick = function () {
   modal.style.display = "none";
+  document.getElementById('youtube-video').src += '';
 }; // When the user clicks anywhere outside of the modal, close it
 
 
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    document.getElementById('youtube-video').src += '';
   }
-};
+}; // MODAL END
 
 /***/ }),
 

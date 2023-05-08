@@ -1,0 +1,140 @@
+@use 'sass:list';
+@use '../abstracts' as *;
+@use '../vendors' as *;
+
+
+/* MARKUP FOR MAIN NAVIGATION  */
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 2rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+nav.main-nav {
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    background-color: $clr-secondary;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+
+nav.main-nav li {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+nav.main-nav a {
+    color: white;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 400ms ease-in-out;
+    font-size: 14px;
+    
+}
+
+nav.main-nav a:hover {
+    color: $clr-secondary;
+}
+
+.nav-toggle:checked ~ .main-nav {
+    transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ .main-nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+
+/* SVG STYLES FOR HAMBURGER MENU - Created by Amy Dutton */
+/* Created by Amy Dutton */
+
+#top,
+#bottom {
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#middle {
+  opacity: 1;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+}
+
+path {
+  stroke-dasharray: 25 45;
+  stroke-dashoffset: 0;
+}
+
+span.hamburger {
+  background: none;
+  border: none;
+}
+
+.x #middle {
+  opacity: 0;
+}
+
+.x #top,
+.x #bottom {
+  stroke-dashoffset: -45;
+}
+
+@include media('>=desktop') {
+    .nav-toggle-label {
+        display: none;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr 1fr;
+    }
+    .logo {
+      padding-left: 1rem;
+      grid-column: 1 / 2;
+    }
+    nav.main-nav {
+      all: unset;
+      grid-column: 3 / 5;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    nav.main-nav a {
+      opacity: 1;
+    }
+
+    nav.main-nav ul {
+      display: flex;
+      justify-content: flex-end;
+      border: 1px solid red;
+    }
+
+    nav.main-nav li {
+      margin-left: 1rem;
+      margin-bottom: 0;
+    }
+   
+}
+
+
+

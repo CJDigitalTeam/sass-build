@@ -52,15 +52,164 @@ table {
   border-spacing: 0;
 }
 
-body {
-  font-size: 16px;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+/* CSS Variables */
+:root {
+  --primary-color: red;
+  --secondary-color: blue;
+  --accent-color: green;
+  --neutral-light: #fff;
+  --neutral-dark: #000;
+}
+
+body {
+  font-size: 16px;
+} /* placeholders */
 .row2 {
   background: linear-gradient(to right, red, blue);
   color: #fff;
 }
 
+/* MARKUP FOR MAIN NAVIGATION  */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+nav.main-nav {
+  position: absolute;
+  text-align: left;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  background-color: blue;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+nav.main-nav li {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+
+nav.main-nav a {
+  color: white;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 400ms ease-in-out;
+  font-size: 14px;
+}
+
+nav.main-nav a:hover {
+  color: blue;
+}
+
+.nav-toggle:checked ~ .main-nav {
+  transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~ .main-nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+/* SVG STYLES FOR HAMBURGER MENU - Created by Amy Dutton */
+/* Created by Amy Dutton */
+#top,
+#bottom {
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#middle {
+  opacity: 1;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+}
+
+path {
+  stroke-dasharray: 25 45;
+  stroke-dashoffset: 0;
+}
+
+span.hamburger {
+  background: none;
+  border: none;
+}
+
+.x #middle {
+  opacity: 0;
+}
+
+.x #top,
+.x #bottom {
+  stroke-dashoffset: -45;
+}
+
+@media (min-width: 1024px) {
+  .nav-toggle-label {
+    display: none;
+  }
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr 1fr;
+  }
+  .logo {
+    padding-left: 1rem;
+    grid-column: 1/2;
+  }
+  nav.main-nav {
+    all: unset;
+    grid-column: 3/5;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  nav.main-nav a {
+    opacity: 1;
+  }
+  nav.main-nav ul {
+    display: flex;
+    justify-content: flex-end;
+    border: 1px solid red;
+  }
+  nav.main-nav li {
+    margin-left: 1rem;
+    margin-bottom: 0;
+  }
+}
+/* GRID LAYOUT */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -144,6 +293,92 @@ body {
     margin-left: 100%;
   }
 }
+/* Header */
+.logo {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.location {
+  width: 100%;
+  background-color: red;
+}
+
+header {
+  background-color: var(--secondary-color);
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Jumbotron section */
+.jumbotron {
+  position: relative;
+  background-color: red;
+  height: 500px;
+  width: 100%;
+}
+
+/* Footer styles */
+footer {
+  margin-top: 100px;
+  padding-top: 50px;
+  background-color: var(--secondary-color);
+  color: var(--neutral-light);
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+  min-height: 250px;
+}
+
+.footer-social {
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-social ul {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  list-style: none;
+  padding: 1rem;
+}
+
+nav.footer-nav ul {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+nav.footer-nav li {
+  padding-bottom: 1rem;
+}
+
+.footer-nav a,
+.footer-social a {
+  text-decoration: none;
+  color: var(--neutral-light);
+}
+
+.disclaimer,
+.copyright {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .footer-nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+/* CONTAINER SYSTEM */
 .container,
 .container-fluid,
 .container-lg {
@@ -202,6 +437,7 @@ body {
   clear: both;
 }
 
+/* BUTTON STYLES */
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -239,4 +475,10 @@ body {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* Youtube Responsive embed */
+.youtube-video {
+  aspect-ratio: 16/9;
+  width: 100%;
 }

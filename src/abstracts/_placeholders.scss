@@ -1,8 +1,8 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 @use 'sass:list';
-  
+
+/* placeholders */
 .row2 {
   @include clr-scheme($clr-scheme-simple-gradient ... );
 }
-  
