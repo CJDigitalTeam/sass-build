@@ -116,75 +116,7 @@ span.hamburger {
   stroke-dashoffset: -45;
 }
 
-@include media('>=desktop') {
-    .nav-toggle-label {
-        display: none;
-    }
-    header {
-      display: grid;
-      grid-template-columns: 5% minmax(auto, 400px) 1fr 1fr 1fr minmax(auto, 400px) 5%;
-      grid-template-rows: auto;
-      grid-template-areas: 
-        '. logo logo . . location-info .'
-        '. title title . . location-info .'
-        '. nav nav nav nav nav .';
-    }
-    .logo {
-      grid-area: logo;
-      text-align: left;
-    }
 
-    nav.main-nav {
-      all: unset;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      grid-area: nav;
-    }
-
-    .hdr-loc-title{
-      grid-area: title;
-      text-align: left;
-      padding-bottom: 1rem;
-    }
-
-    nav.main-nav ul li:first-child {
-      margin-top: 0;
-      border-top: 0;
-    }
-
-    nav.main-nav ul li:last-child {
-      margin-bottom: 0;
-    }
-
-    nav.main-nav a {
-      opacity: 1;
-      color: #000;
-    }
-
-    nav.main-nav ul {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      width: 100%;
-    }
-
-    nav.main-nav li {
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .hdr-loc-info * {
-      max-width: 100%;
-    }
-
-    .hdr-loc-info {
-      grid-area: location-info;
-      text-align: right;
-      justify-self: end;
-    }
-   
-}
 
 
 
