@@ -1,5 +1,53 @@
 @use '../abstracts/mixins' as *;
 
+/* TYPOGRAPHY */
+@include font-face('Futura PT', FuturaPT);
+@include font-face('Futura PT', FuturaPT, bold, normal);
+@include font-face('Futura PT', FuturaPT, 800, normal);
+
+@include font-face('Roboto', Roboto-Regular, 400, normal);
+@include font-face('Roboto', Roboto-Medium, 500, normal);
+
+@include font-face('Fira Sans', FiraSans-Regular, 400, normal);
+@include font-face('Fira Sans', FiraSans-Medium, 500, normal);
+@include font-face('Fira Sans', FiraSans-Book, 600, normal);
+@include font-face('Fira Sans', FiraSans-Bold, 600, normal);
+
 body {
     font-size: 16px;
+}
+
+h1 {
+    font-size: 1.875rem;
+    line-height: 2rem;
+    margin: .625rem 0 1.25rem 0;
+    font-family: 'Roboto';
+    font-weight: 500;
+
+}
+h2 {
+    font-size: 1.688rem;
+    line-height: 2.125rem;
+    margin-bottom: 0.625rem;
+}
+h3 {
+    font-size: 1.125rem;
+    line-height: 1.375;
+    margin: 0.625rem 0;
+}
+p,li {
+    font-size: 1.125rem;
+    line-height: 1.813rem;
+    margin-bottom: .625rem;
+}
+
+h3.hdr-loc-title {
+    font-size: 1.375rem;
+    font-weight: 800;
+    font-family: 'Futura PT';
+    margin-top: 0;
+}
+
+.hdr-loc-hours {
+    text-decoration: underline;
 }

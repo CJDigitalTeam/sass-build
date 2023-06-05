@@ -1,4 +1,6 @@
+@use 'sass:list';
 @use '../abstracts' as *;
+@use '../vendors' as *;
 
 /* Header */
 
@@ -7,13 +9,18 @@
     padding-bottom: 1rem;
 }
 
+.logo img {
+    width: 40%;
+    max-width: 15.625rem;
+}
+
 .location {
     width: 100%;
-    background-color: red;
+    background-color: --kumon-green;
 }
 
 header {
-   background-color: var(--secondary-color); 
+   background-color: #fff; 
    text-align: center;
    position: fixed;
    width: 100%;
@@ -22,4 +29,105 @@ header {
    padding-bottom: 1rem; 
 }
 
+.hdr-loc-info * {
+    font-size: 0.938rem;
+    line-height: 1.25rem;
+    font-family: 'Roboto';
+    font-weight: 400;
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.hdr-loc-info a {
+    text-decoration: none;
+    color: #000;
+}
+
+.hdr-loc-info a:hover {
+    text-decoration: underline;
+}
+
+@include media('>=desktop') {
+    .nav-toggle-label {
+        display: none;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 5% minmax(auto, 400px) 1fr 1fr 1fr minmax(auto, 400px) 5%;
+      grid-template-rows: auto;
+      grid-template-areas: 
+        '. logo logo . . location-info .'
+        '. title title . . location-info .'
+        '. nav nav nav nav nav .';
+        padding-bottom: 0;
+    }
+    .logo {
+      grid-area: logo;
+      text-align: left;
+      padding-top: 0;
+    }
+
+    nav.main-nav {
+      all: unset;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      grid-area: nav;
+    }
+
+    .hdr-loc-title{
+      grid-area: title;
+      text-align: left;
+      padding-bottom: 1rem;
+    }
+
+    nav.main-nav ul li:first-child {
+      margin-top: 0;
+      border-top: 0;
+    }
+
+    nav.main-nav ul li:last-child {
+      margin-bottom: 0;
+    }
+
+    nav.main-nav ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 100%;
+    }
+
+    nav.main-nav li {
+      margin-bottom: 0;
+      border-bottom: transparent solid .60rem;
+    }
+
+    nav.main-nav li:hover,
+    nav.main-nav li:focus
+     {
+        border-bottom: var(--kumon-lt-blue) solid .60rem;
+        color: var(--kumon-lt-blue);
+      }
+    
+      nav.main-nav li a:hover,
+      nav.main-nav li a:focus {
+        color: #000;
+      }
+
+    nav.main-nav a {
+        opacity: 1;
+        color: #000;
+      }
+
+    .hdr-loc-info * {
+      max-width: 100%;
+    }
+
+    .hdr-loc-info {
+      grid-area: location-info;
+      text-align: right;
+      justify-self: end;
+    }
+   
+}
 
