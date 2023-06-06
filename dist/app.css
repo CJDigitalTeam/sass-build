@@ -71,7 +71,7 @@ body {
   --kumon-lt-blue: #6DCFF6;
   --kumon-blue: #3E59A8;
   --kumon-purple: #7F62AB;
-  --kumon-red: #7F62AB;
+  --kumon-red: #E27353;
   --kumon-green: #33B8A6;
   --kumon-yellow: #FBE267;
   --kumon-orange: #E27353;
@@ -463,9 +463,6 @@ header {
     margin-top: 0;
     border-top: 0;
   }
-  nav.main-nav ul li:last-child {
-    margin-bottom: 0;
-  }
   nav.main-nav ul {
     display: flex;
     justify-content: space-between;
@@ -475,16 +472,36 @@ header {
   nav.main-nav li {
     padding-bottom: 0;
     margin-bottom: 0;
-    border-bottom: transparent solid 0.6rem;
+    border-bottom: transparent solid 0.5rem;
   }
   nav.main-nav li:hover,
   nav.main-nav li:focus {
-    border-bottom: var(--kumon-lt-blue) solid 0.6rem;
+    border-bottom: var(--kumon-lt-blue) solid 0.5rem;
     color: var(--kumon-lt-blue);
+  }
+  nav.main-nav li:has(> .active) {
+    border-bottom: var(--kumon-lt-blue) solid 0.5rem;
   }
   nav.main-nav li a:hover,
   nav.main-nav li a:focus {
     color: #000;
+  }
+  nav.main-nav ul li:last-child {
+    margin-bottom: 0;
+    background-color: var(--kumon-red);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  nav.main-nav ul li:last-child a {
+    color: #fff;
+  }
+  nav.main-nav ul li:last-child a:hover {
+    text-decoration: underline;
+    transition: ease-in-out 200ms scale;
+    transform: scale(1.1);
+  }
+  nav.main-nav ul li:last-child:hover {
+    border-bottom: transparent solid 0.5rem;
   }
   nav.main-nav a {
     opacity: 1;

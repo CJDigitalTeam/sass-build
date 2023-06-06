@@ -43,7 +43,17 @@ window.onclick = function (event) {
     modal.style.display = "none";
     document.getElementById('youtube-video').src += '';
   }
-}; // MODAL END
+}; // MODAL END 
+// Navigation link stays highlighted when clicked START
+
+
+var activePage = window.location.pathname;
+var navLinks = document.querySelectorAll('nav.main-nav li a').forEach(function (link) {
+  if (link.href.includes("".concat(activePage))) {
+    link.classList.add('active');
+    console.log(link);
+  }
+}); // Navigation link stays highlighted when clicked END
 
 /***/ }),
 

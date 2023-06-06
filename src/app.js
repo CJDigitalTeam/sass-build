@@ -1,3 +1,4 @@
+
 // HAMBURGER MENU TOGGLE START 
 const element = document.getElementById("hamburger");
 
@@ -34,3 +35,15 @@ window.onclick = function(event) {
   }
 }
 // MODAL END 
+
+
+// Navigation link stays highlighted when clicked START
+const activePage = window.location.pathname;
+const navLinks = document.querySelectorAll('nav.main-nav li a').forEach(link => {
+  if(link.href.includes(`${activePage}`)){
+    link.classList.add('active');
+    console.log(link);
+  }
+})
+// Navigation link stays highlighted when clicked END
+
